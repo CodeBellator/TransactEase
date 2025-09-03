@@ -1,0 +1,201 @@
+/* style.css - MiniBank demo styles */
+
+:root {
+    --primary-color: #2d89ef;
+    --primary-color-light: #53a0ff;
+    --secondary-color: #444;
+    --background-color: #f8f9fa;
+    --text-color: #222;
+    --danger-color: #e04343;
+    --success-color: #44a340;
+    --border-radius: 6px;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h2, h3, h4 {
+    margin: 0 0 1rem 0;
+}
+
+.auth-section,
+.dashboard-header,
+.accounts-section,
+.account-details-section,
+.transfer-form-container,
+.transactions-container {
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    max-width: 320px;
+    margin: auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    background-color: #fff;
+}
+
+input[type=text],
+input[type=password],
+input[type=number],
+select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type=text]:focus,
+input[type=password]:focus,
+input[type=number]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-color-light);
+}
+
+.btn-secondary {
+    background-color: #e7e7e7;
+    color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+    background-color: #d5d5d5;
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    text-decoration: underline;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+.link-btn:hover {
+    color: var(--primary-color-light);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.account-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.account-list li {
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    margin-bottom: 0.5rem;
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.account-list li:hover {
+    background-color: #f0f8ff;
+}
+
+.account-list li.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.transactions-table th,
+.transactions-table td {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.transactions-table th {
+    background-color: #f2f2f2;
+}
+
+.sql-export-output {
+    background-color: #222;
+    color: #00ff00;
+    padding: 1rem;
+    font-family: monospace;
+    overflow-x: auto;
+    max-height: 300px;
+    margin-top: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .container {
+        margin: 1rem;
+        padding: 0.5rem;
+    }
+
+    .form-container {
+        max-width: 100%;
+    }
+
+    .account-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .account-list li span.balance {
+        margin-top: 0.25rem;
+        font-weight: bold;
+    }
+}
