@@ -223,7 +223,7 @@
     }
     userAccounts.forEach(acc => {
       const li = document.createElement('li');
-      li.textContent = `${acc.account_name} - $${formatCurrency(acc.balance)}`;
+      li.textContent = `${acc.account_name} - ₹${formatCurrency(acc.balance)}`;
       li.dataset.accountId = acc.id;
       li.classList.toggle('selected', acc.id === selectedAccountId);
       li.addEventListener('click', () => {
@@ -299,7 +299,7 @@
     accountDetailsSection.classList.add('hidden');
   }
 
-  // Top-up button adds $100 to the selected account
+  // Top-up button adds ₹100 to the selected account
   topUpBtn.addEventListener('click', () => {
     if (!selectedAccountId) return;
     let acc = accounts.find(a => a.id === selectedAccountId && a.user_id === currentUser.id);
@@ -315,7 +315,7 @@
       to_account_id: acc.id,
       amount: 100,
       type: 'top-up',
-      note: 'Demo top-up $100',
+      note: 'Demo top-up ₹100',
       created_at: new Date().toISOString()
     });
     saveTransactions();
@@ -403,7 +403,7 @@
       tr.innerHTML = `
         <td>${date}</td>
         <td>${t.type}</td>
-        <td>$${formatCurrency(t.amount)}</td>
+        <td>₹${formatCurrency(t.amount)}</td>
         <td>${fromAccName}</td>
         <td>${toAccName}</td>
         <td>${t.note || ''}</td>
